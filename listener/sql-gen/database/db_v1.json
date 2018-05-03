@@ -1,0 +1,78 @@
+{
+    "name": "explore",
+    "version": "1",
+    "definer": "halalchain",
+    "table": {
+    	"db_version": {
+            "ignore": "1",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint32",
+                    "key": "1",
+                    "auto_increment": "1"
+                },
+                {
+                    "name": "version",
+                    "type": "uint32"
+                },
+                {
+                    "name": "update_time",
+                    "type": "timestamp"
+                }
+            ]
+        },
+        "block": {
+            "fields": [
+                {
+                    "name": "data_hash",
+                    "type": "string",
+                    "length": "300",
+                    "key": "1"
+                },
+                {
+                    "name": "number",
+                    "type": "uint32"
+                },
+                {
+                    "name": "tx_count",
+                    "type": "uint32"
+                },
+		{
+                    "name": "timestamp",
+                    "type": "int64"
+                },
+                {
+                    "name": "previous_hash",
+                    "type": "string",
+                    "length": "300"
+                }
+            ]
+        },
+	"peer": {
+            "fields": [
+                {
+                    "name": "name",
+                    "type": "string",
+                    "length": "50",
+                    "key": "1"
+                },
+                {
+                    "name": "request",
+                    "type": "string",
+		    "length": "50"
+                },
+                {
+                    "name": "hostname",
+                    "type": "string",
+		    "length": "50"
+                },
+		{
+                    "name": "organization",
+                    "type": "string",
+		    "length": "50"
+                }
+            ]
+        }
+    }
+}

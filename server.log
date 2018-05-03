@@ -1,0 +1,17 @@
+[32m[2018-04-09 17:40:43.952] [INFO] SampleWebApp - [39m****************** SERVER STARTED ************************
+[32m[2018-04-09 17:40:43.954] [INFO] SampleWebApp - [39m***************  http://localhost:4000  ******************
+events.js:137
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE :::4000
+    at Object._errnoException (util.js:1003:13)
+    at _exceptionWithHostPort (util.js:1024:20)
+    at Server.setupListenHandle [as _listen2] (net.js:1367:14)
+    at listenInCluster (net.js:1408:12)
+    at Server.listen (net.js:1496:7)
+    at Object.<anonymous> (/hlc/halalChain/halal.js:93:37)
+    at Module._compile (module.js:660:30)
+    at Object.Module._extensions..js (module.js:671:10)
+    at Module.load (module.js:573:32)
+    at tryModuleLoad (module.js:513:12)
