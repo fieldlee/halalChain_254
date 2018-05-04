@@ -26,6 +26,7 @@ var invokeChaincode = async function (peerNames, channelName, chaincodeName, fcn
     var error_message = null;
     var eventhubs_in_use = [];
     var tx_id_string = null;
+    var batch_register_message = null;
     try {
         let response = await helper.getOrgCAUser(org_name);
         let orgCAusername;
@@ -80,6 +81,7 @@ var invokeChaincode = async function (peerNames, channelName, chaincodeName, fcn
                 one_good = true;
                 logger.info('invoke chaincode proposal was good');
             } else {
+                logger.error(proposalResponses[0].response.payload);
                 logger.error('invoke chaincode proposal was bad');
             }
             all_good = all_good & one_good;
@@ -91,7 +93,10 @@ var invokeChaincode = async function (peerNames, channelName, chaincodeName, fcn
                 proposalResponses[0].response.status, proposalResponses[0].response.message,
                 proposalResponses[0].response.payload, proposalResponses[0].endorsement
                     .signature));
-
+            if (fcn == "BatchRegister" && proposalResponses && proposalResponses[0] && proposalResponses[0].response.payload) {
+                batch_register_message = util.format("%s", proposalResponses[0].response.payload);
+            }
+            
             // tell each peer to join and wait for the event hub of each peer to tell us
             // that the channel has been created on each peer
             var promises = [];
@@ -182,7 +187,9 @@ var invokeChaincode = async function (peerNames, channelName, chaincodeName, fcn
         let message = util.format(
             'Successfully invoked the chaincode %s to the channel \'%s\'',
             org_name, channelName);
-        logger.info(message);
+        if (batch_register_message) {
+            message = batch_register_message;
+        }
         return {
             success: true,
             txId: tx_id_string,

@@ -109,6 +109,12 @@ var getBlockByNumber = async function (peer, channelName, blockNumber, username,
 
         let response_payload = await channel.queryBlock(parseInt(blockNumber), peer);
         if (response_payload) {
+            // logger.error(response_payload.data.data);
+            // var sortReponse_payload = []
+            // for (let index = response_payload.length - 1; index >= 0 ; index--) {
+            //     const element = response_payload[index];
+            //     sortReponse_payload.push(element);
+            // }
             let message = 'response_payload is not null';
             logger.debug(response_payload);
             return {
