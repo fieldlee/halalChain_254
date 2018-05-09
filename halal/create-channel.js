@@ -20,8 +20,10 @@ let helper = require('./helper.js');
 let logger = helper.getLogger('Create-Channel');
 //Attempt to send a request to the orderer with the sendTransaction method
 let createChannel = async function (orderer, channelName, channelConfigPath, username, orgName) {
+    console.log("======1=======");
     logger.debug('\n====== Creating Channel \'' + channelName + '\' ======\n');
     try {
+        console.log("======2=======");
         // first setup the client for this org
         let client = await helper.getClientForOrg(orgName);
         logger.debug('Successfully got the fabric client for the organization "%s"', orgName);
@@ -30,26 +32,27 @@ let createChannel = async function (orderer, channelName, channelConfigPath, use
         let envelope = fs.readFileSync(path.join(__dirname, channelConfigPath));
         // extract the channel config bytes from the envelope to be signed
         let channelConfig = client.extractChannelConfig(envelope);
-
+        console.log("======3=======");
         //Acting as a client in the given organization provided with "orgName" param
         // sign the channel config bytes as "endorsement", this is required by
         // the orderer's channel creation policy
         // this will use the admin identity assigned to the client when the connection profile was loaded
         let signature = client.signChannelConfig(channelConfig);
-
+        console.log("======4=======");
         let request = {
             config: channelConfig,
             signatures: [signature],
             name: channelName,
             txId: client.newTransactionID(true) // get an admin based transactionID
         };
-
+        console.log("======5=======");
         if (orderer) {
             request.orderer = orderer;
         }
 
         // send to orderer
         let response = await client.createChannel(request);
+        console.log("======6=======");
         logger.debug(' response ::%j', response);
         if (response && response.status === 'SUCCESS') {
             logger.debug('Successfully created the channel.');

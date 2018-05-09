@@ -201,7 +201,7 @@ orderers:
     # they will be passed in as-is to gRPC client constructor
     grpcOptions:
       ssl-target-name-override: orderer0.ageliorderer.com
-      grpc-max-send-message-length: 15
+      #grpc-max-send-message-length: 15
 
     tlsCACerts:
       path: network/crypto-config/ordererOrganizations/ageliorderer.com/orderers/orderer0.ageliorderer.com/tls/ca.crt

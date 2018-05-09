@@ -15,10 +15,10 @@ services:
       - FABRIC_CA_SERVER_CA_NAME=ca-org1
       - FABRIC_CA_SERVER_TLS_ENABLED=true
       - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.ageli.com-cert.pem
-      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/5c06ab7a0cb05d2b9df9bdffd7ba44ce4ed205538faf6ceddad475909747e2a9_sk
+      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/5b766ad062a5e83806d32bcc64008030555d7229f9e5e8141f25046d47268942_sk
     ports:
       - "7054:7054"
-    command: sh -c 'GODEBUG=netdns=go fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.ageli.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/5c06ab7a0cb05d2b9df9bdffd7ba44ce4ed205538faf6ceddad475909747e2a9_sk -b admin:adminpw -d'
+    command: sh -c 'GODEBUG=netdns=go fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.ageli.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/5b766ad062a5e83806d32bcc64008030555d7229f9e5e8141f25046d47268942_sk -b admin:adminpw -d'
     volumes:
       - ./crypto-config/peerOrganizations/ageli.com/ca/:/etc/hyperledger/fabric-ca-server-config
       - ./channel-artifacts/fabric-ca-server-config.yaml:/etc/hyperledger/fabric-ca-server/fabric-ca-server-config.yaml
@@ -33,10 +33,10 @@ services:
       - FABRIC_CA_SERVER_CA_NAME=ca-org2
       - FABRIC_CA_SERVER_TLS_ENABLED=true
       - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.creator.com-cert.pem
-      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/c9c7e11bde41ef312b300b340d051bab6295a05ea7996ac461c408e5102c671f_sk
+      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/3d99610a24c12ed38504e4cdaad5823cea63529df7a2ca13e5a4c0ffb06deebc_sk
     ports:
       - "8054:7054"
-    command: sh -c 'GODEBUG=netdns=go fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.creator.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/c9c7e11bde41ef312b300b340d051bab6295a05ea7996ac461c408e5102c671f_sk -b admin:adminpw -d'
+    command: sh -c 'GODEBUG=netdns=go fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.creator.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/3d99610a24c12ed38504e4cdaad5823cea63529df7a2ca13e5a4c0ffb06deebc_sk -b admin:adminpw -d'
     volumes:
       - ./crypto-config/peerOrganizations/creator.com/ca/:/etc/hyperledger/fabric-ca-server-config
       - ./channel-artifacts/fabric-ca-server-config.yaml:/etc/hyperledger/fabric-ca-server/fabric-ca-server-config.yaml
@@ -51,10 +51,10 @@ services:
       - FABRIC_CA_SERVER_CA_NAME=ca-org3
       - FABRIC_CA_SERVER_TLS_ENABLED=true
       - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.transfer.com-cert.pem
-      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/7849bfdf5eaa0b61bb9a9a8e00a7b72ccfc82e2de2c0e56ba4f316516bb7e94e_sk
+      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/8373c1d78dc4bf21d59493af25cedfe53c783cc3bf5917c70902b586674f1e90_sk
     ports:
       - "9054:7054"
-    command: sh -c 'GODEBUG=netdns=go fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.transfer.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/7849bfdf5eaa0b61bb9a9a8e00a7b72ccfc82e2de2c0e56ba4f316516bb7e94e_sk -b admin:adminpw -d'
+    command: sh -c 'GODEBUG=netdns=go fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.transfer.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/8373c1d78dc4bf21d59493af25cedfe53c783cc3bf5917c70902b586674f1e90_sk -b admin:adminpw -d'
     volumes:
       - ./crypto-config/peerOrganizations/transfer.com/ca/:/etc/hyperledger/fabric-ca-server-config
       - ./channel-artifacts/fabric-ca-server-config.yaml:/etc/hyperledger/fabric-ca-server/fabric-ca-server-config.yaml
