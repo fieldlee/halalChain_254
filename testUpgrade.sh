@@ -5,6 +5,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+
 jq --version > /dev/null 2>&1
 if [ $? -ne 0 ]; then
 	echo "Please Install 'jq' https://stedolan.github.io/jq/ to execute this script"
@@ -126,7 +127,7 @@ curl -s -X POST \
 	\"chaincodeName\":\"hlccc\",
 	\"chaincodePath\":\"$CC_SRC_PATH\",
 	\"chaincodeType\": \"$LANGUAGE\",
-	\"chaincodeVersion\":\"v2.8\"
+	\"chaincodeVersion\":\"v$1\"
 }"
 echo
 echo
@@ -142,7 +143,7 @@ curl -s -X POST \
 	\"chaincodeName\":\"hlccc\",
 	\"chaincodePath\":\"$CC_SRC_PATH\",
 	\"chaincodeType\": \"$LANGUAGE\",
-	\"chaincodeVersion\":\"v2.8\"
+	\"chaincodeVersion\":\"v$1\"
 }"
 echo
 echo
@@ -158,7 +159,7 @@ curl -s -X POST \
 	\"chaincodeName\":\"hlccc\",
 	\"chaincodePath\":\"$CC_SRC_PATH\",
 	\"chaincodeType\": \"$LANGUAGE\",
-	\"chaincodeVersion\":\"v2.8\"
+	\"chaincodeVersion\":\"v$1\"
 }"
 echo
 echo
@@ -175,7 +176,7 @@ curl -s -X POST \
 	\"chaincodeName\":\"hlccc\",
 	\"chaincodePath\":\"$CC_SRC_PATH\",
 	\"chaincodeType\": \"$LANGUAGE\",
-	\"chaincodeVersion\":\"v2.8\"
+	\"chaincodeVersion\":\"v$1\"
 }"
 echo
 echo
@@ -194,7 +195,7 @@ curl -s -X PUT \
 	\"chaincodeType\": \"$LANGUAGE\",
 	\"fcn\":\"init\",
   \"args\":[\"\"],
-	\"chaincodeVersion\":\"v2.8\"
+	\"chaincodeVersion\":\"v$1\"
 }"
 echo
 echo
