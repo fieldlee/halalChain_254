@@ -10,6 +10,7 @@ services:
   orderer0.ageliorderer.com:
     container_name: orderer0.ageliorderer.com
     image: hyperledger/fabric-orderer
+    privileged: true
     environment:
       - ORDERER_GENERAL_LOGLEVEL=debug
       - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
@@ -33,6 +34,7 @@ services:
 
   peer0.ageli.com:
     container_name: peer0.ageli.com
+    privileged: true
     extends:
       file: peer-base.yaml
       service: peer-base
@@ -51,6 +53,7 @@ services:
 
   peer1.ageli.com:
     container_name: peer1.ageli.com
+    privileged: true
     extends:
       file: peer-base.yaml
       service: peer-base
@@ -71,6 +74,7 @@ services:
 
   peer0.creator.com:
     container_name: peer0.creator.com
+    privileged: true
     extends:
       file: peer-base.yaml
       service: peer-base
@@ -90,6 +94,7 @@ services:
 
   peer1.creator.com:
     container_name: peer1.creator.com
+    privileged: true
     extends:
       file: peer-base.yaml
       service: peer-base
@@ -109,6 +114,7 @@ services:
 
   peer0.transfer.com:
     container_name: peer0.transfer.com
+    privileged: true
     extends:
       file: peer-base.yaml
       service: peer-base
@@ -127,6 +133,7 @@ services:
 
   peer1.transfer.com:
     container_name: peer1.transfer.com
+    privileged: true
     extends:
       file: peer-base.yaml
       service: peer-base
@@ -147,6 +154,7 @@ services:
 
   peer0.seller.com:
     container_name: peer0.seller.com
+    privileged: true
     extends:
       file: peer-base.yaml
       service: peer-base
@@ -166,6 +174,7 @@ services:
 
   peer1.seller.com:
     container_name: peer1.seller.com
+    privileged: true
     extends:
       file: peer-base.yaml
       service: peer-base
