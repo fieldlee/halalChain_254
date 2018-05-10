@@ -10,6 +10,7 @@ networks:
 services:
   ca0:
     image: hyperledger/fabric-ca
+    privileged: true
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca-org1
@@ -28,6 +29,7 @@ services:
 
   ca1:
     image: hyperledger/fabric-ca
+    privileged: true
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca-org2
@@ -46,6 +48,7 @@ services:
 
   ca2:
     image: hyperledger/fabric-ca
+    privileged: true
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca-org3
@@ -64,6 +67,7 @@ services:
 
   ca3:
     image: hyperledger/fabric-ca
+    privileged: true
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca-org4
