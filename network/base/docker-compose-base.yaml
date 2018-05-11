@@ -61,7 +61,7 @@ services:
       - CORE_PEER_ID=peer1.ageli.com
       - CORE_PEER_ADDRESS=peer1.ageli.com:7051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.ageli.com:7051
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.ageli.com:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.ageli.com:7051
       - CORE_PEER_LOCALMSPID=ageli
     volumes:
         - /var/run/:/host/var/run/
