@@ -10,15 +10,16 @@ networks:
 services:
   ca0:
     image: hyperledger/fabric-ca
+    privileged: true
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca-org1
       - FABRIC_CA_SERVER_TLS_ENABLED=true
       - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.ageli.com-cert.pem
-      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/5b766ad062a5e83806d32bcc64008030555d7229f9e5e8141f25046d47268942_sk
+      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/2d93ddb1e5be405a5a4d4c80d1be7add69b8d73fed607eb99ff991bc02c1bec4_sk
     ports:
       - "7054:7054"
-    command: sh -c 'GODEBUG=netdns=go fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.ageli.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/5b766ad062a5e83806d32bcc64008030555d7229f9e5e8141f25046d47268942_sk -b admin:adminpw -d'
+    command: sh -c 'GODEBUG=netdns=go fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.ageli.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/2d93ddb1e5be405a5a4d4c80d1be7add69b8d73fed607eb99ff991bc02c1bec4_sk -b admin:adminpw -d'
     volumes:
       - ./crypto-config/peerOrganizations/ageli.com/ca/:/etc/hyperledger/fabric-ca-server-config
       - ./channel-artifacts/fabric-ca-server-config.yaml:/etc/hyperledger/fabric-ca-server/fabric-ca-server-config.yaml
@@ -28,15 +29,16 @@ services:
 
   ca1:
     image: hyperledger/fabric-ca
+    privileged: true
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca-org2
       - FABRIC_CA_SERVER_TLS_ENABLED=true
       - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.creator.com-cert.pem
-      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/3d99610a24c12ed38504e4cdaad5823cea63529df7a2ca13e5a4c0ffb06deebc_sk
+      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/8c6b9184d26080ddbe326c14691c0779457a3298208ce5d14d7b4b42e05e66d3_sk
     ports:
       - "8054:7054"
-    command: sh -c 'GODEBUG=netdns=go fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.creator.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/3d99610a24c12ed38504e4cdaad5823cea63529df7a2ca13e5a4c0ffb06deebc_sk -b admin:adminpw -d'
+    command: sh -c 'GODEBUG=netdns=go fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.creator.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/8c6b9184d26080ddbe326c14691c0779457a3298208ce5d14d7b4b42e05e66d3_sk -b admin:adminpw -d'
     volumes:
       - ./crypto-config/peerOrganizations/creator.com/ca/:/etc/hyperledger/fabric-ca-server-config
       - ./channel-artifacts/fabric-ca-server-config.yaml:/etc/hyperledger/fabric-ca-server/fabric-ca-server-config.yaml
@@ -46,15 +48,16 @@ services:
 
   ca2:
     image: hyperledger/fabric-ca
+    privileged: true
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca-org3
       - FABRIC_CA_SERVER_TLS_ENABLED=true
       - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.transfer.com-cert.pem
-      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/8373c1d78dc4bf21d59493af25cedfe53c783cc3bf5917c70902b586674f1e90_sk
+      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/50d1067d628133006776eb1ef1cf9b4d35883771f731f05409395549d0713f42_sk
     ports:
       - "9054:7054"
-    command: sh -c 'GODEBUG=netdns=go fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.transfer.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/8373c1d78dc4bf21d59493af25cedfe53c783cc3bf5917c70902b586674f1e90_sk -b admin:adminpw -d'
+    command: sh -c 'GODEBUG=netdns=go fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.transfer.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/50d1067d628133006776eb1ef1cf9b4d35883771f731f05409395549d0713f42_sk -b admin:adminpw -d'
     volumes:
       - ./crypto-config/peerOrganizations/transfer.com/ca/:/etc/hyperledger/fabric-ca-server-config
       - ./channel-artifacts/fabric-ca-server-config.yaml:/etc/hyperledger/fabric-ca-server/fabric-ca-server-config.yaml
@@ -64,6 +67,7 @@ services:
 
   ca3:
     image: hyperledger/fabric-ca
+    privileged: true
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca-org4
