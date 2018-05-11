@@ -40,13 +40,13 @@ verifyResult () {
 setGlobals () {
 
 	if [ $1 -eq 0 -o $1 -eq 1 ] ; then
-		CORE_PEER_LOCALMSPID="hlc"
+		CORE_PEER_LOCALMSPID="ageli"
 		CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/hlc.com/peers/peer0.hlc.com/tls/ca.crt
 		CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/hlc.com/users/Admin@hlc.com/msp
 		if [ $1 -eq 0 ]; then
-			CORE_PEER_ADDRESS=peer0.hlc.com:7051
+			CORE_PEER_ADDRESS=peer0.ageli.com:7051
 		else
-			CORE_PEER_ADDRESS=peer1.hlc.com:7051
+			CORE_PEER_ADDRESS=peer1.ageli.com:7051
 		fi
 	elif [ $1 -eq 2 -o $1 -eq 3 ] ; then
 		CORE_PEER_LOCALMSPID="breed"
